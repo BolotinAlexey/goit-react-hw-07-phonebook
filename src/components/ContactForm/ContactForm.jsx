@@ -1,13 +1,15 @@
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form } from './ContactForm.styled';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 
 function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+
   const handlerSubmit = e => {
+    console.log(contacts);
     e.preventDefault();
 
     const name = e.target.elements.name.value;
